@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade Risk Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Risk Management Calculator</h1>
+            <p>Calculate precise position sizing based on absolute risk.</p>
+        </header>
+
+        <form id="risk-form">
+            <div class="input-group">
+                <label for="balance">Account Balance ($)</label>
+                <input type="number" id="balance" step="0.01" required placeholder="100000">
+            </div>
+
+            <div class="input-group">
+                <label for="risk">Risk Percentage (%)</label>
+                <input type="number" id="risk" step="0.01" required placeholder="1.0">
+            </div>
+
+            <div class="input-group">
+                <label for="entry">Entry Price</label>
+                <input type="number" id="entry" step="0.00001" required placeholder="4500.25">
+            </div>
+
+            <div class="input-group">
+                <label for="stop">Stop Loss Price</label>
+                <input type="number" id="stop" step="0.00001" required placeholder="4490.00">
+            </div>
+
+            <div class="input-group">
+                <label for="point-value">Value per Point/Pip ($)</label>
+                <input type="number" id="point-value" step="0.01" required placeholder="20">
+            </div>
+
+            <button type="submit">Calculate Position Size</button>
+        </form>
+
+        <div id="results" class="results-card hidden">
+            <h2>Trade Summary</h2>
+            <div class="result-row">
+                <span>Capital at Risk:</span>
+                <span id="res-risk-amount" class="highlight-text">$0.00</span>
+            </div>
+            <div class="result-row">
+                <span>Distance to Stop:</span>
+                <span id="res-distance">0.00</span>
+            </div>
+            <div class="result-row">
+                <span>Max Position Size:</span>
+                <span id="res-position-size" class="highlight-text large-text">0.00 Units</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
